@@ -12,11 +12,14 @@ Currently the library loads the high and low temperature for today, including a 
 
 It can easily be extended, **please fork and send pull requests!**
 
+Here is a list of the possible descriptions: http://developer.yahoo.com/weather/#codes
+
 ## Dependencies
 It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) for spark core. Before compiling, add those files to your workspace. If you are building locally add it to `build.mk`. 
 
 ## Known issues
 * sometimes it does not connect to yahoo api on first try. after a few tries it should work. 
+
 
 ## Usage
 You have to find your location code "woeid". 
