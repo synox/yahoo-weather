@@ -16,7 +16,7 @@ It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) fo
 ## Usage
 You have to find your location code "woeid". 
 
-open the following link in your browser and replace the city name: 
+open the following link in your browser and replace the city name und the URL: 
 
 http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text=%22New%20York,US%22
 
