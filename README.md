@@ -5,6 +5,8 @@ A library for the yahoo weather api, made for spark core (http://spark.io).
 
 Please read the yahoo [Usage Information and Limits](http://developer.yahoo.com/yql/guide/usage_info_limits.html). 
 
+> This library should be considered **alpha** tested software.  It is not ready for use in production without testing and bugfixing. 
+
 ## Data
 Currently the library loads the high and low temperature for today, including a short description. 
 
