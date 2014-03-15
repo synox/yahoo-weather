@@ -35,6 +35,9 @@ in loop():
 the cache class caches the response for two hours: 
 ```c++
 		weather_response_t resp = weatherCache.lazyUpdate();
+		if(resp.isSuccess) {
+			// print(resp.temp_high);
+		}
 ```
 
 
@@ -87,6 +90,6 @@ or you can access the update directly:
 		// check again in 5 seconds:
 		nextTime = millis() + 5000;
 	}
-``
+```
 
 Have fun! Share!
