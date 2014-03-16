@@ -14,6 +14,16 @@ It can easily be extended, **please fork and send pull requests!**
 
 Here is a list of the possible descriptions: http://developer.yahoo.com/weather/#codes
 
+### How to include other data?
+1. open in your browser:  http://developer.yahoo.com/yql/console/?q=select%20item%20from%20weather.forecast%20where%20u%3D'c'%20and%20woeid%3D%20781788
+2. press ``Test``, enable "Tree View".
+3. read the output and choose wich data you need. e.g. atmosphere-humidity
+4. limit your query to only select what you need. (it's a tree.) example: ``select atmosphere.humidity, wind.speed  from weather.forecast where woeid=2502265``
+5. select "json" and copy the URL labeled "THE REST QUERY". Test it in your browser or wget/curl, keep the output as a reference for implementation. 
+6. paste it to the weather.cpp to the query address
+7. adjust ``Weather::parse()`` to respect the other json parameters. Doublecheck the exact json output. Add more variables to the ``weather_response_t`` struct. 
+8. make tests, deploy, leave feedback
+
 ## Dependencies
 It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) for spark core. Before compiling, add those files to your workspace. If you are building locally add it to `build.mk`. 
 
