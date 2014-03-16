@@ -31,11 +31,12 @@ typedef struct {
 
 class Weather {
 	public :
-	void init(String woeid, HttpClient* client);
+	void init(String woeid, HttpClient* client, bool isDegreeCelsius);
 	weather_response_t update();
 
 	private :
 	String woeid;
+	String unitsForTemperature;
 	HttpClient* client;
 	weather_response_t response;
 	weather_response_t parse(String json);

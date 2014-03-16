@@ -1,15 +1,22 @@
 // see yahoo_weather.h for description
 #include "yahoo_weather.h"
 
-void Weather::init(String id, HttpClient* client) {
+void Weather::init(String id, HttpClient* client, bool isDegreeCelsius) {
 	this->woeid = id;
 	this->client = client;
+	if(isDegreeCelsius) {
+		// Celsius
+	this->unitsForTemperature = "c";
+	} else {
+		// Fahrenheit
+	this->unitsForTemperature = "f";
+	}
 }
 
 weather_response_t Weather::update() {
 	Serial.println("loading weather");
 	http_request_t request;
-	request.path = "/v1/public/yql?q=select%20%20item.forecast.text%2C%20item.forecast.high%2C%20item.forecast.low%20from%20weather.forecast%20where%20u%3D'c'%20and%20woeid%3D%20"+woeid+"&format=json&callback=";
+	request.path = "/v1/public/yql?q=select%20%20item.forecast.text%2C%20item.forecast.high%2C%20item.forecast.low%20from%20weather.forecast%20where%20u%3D'"+this->unitsForTemperature+"'%20and%20woeid%3D%20"+woeid+"&format=json&callback=";
 	request.body = "";
 	Serial.println(request.path);
 
@@ -50,7 +57,8 @@ weather_response_t Weather::parse(String jsonData) {
 	response.temp_high = parseInt(readData(jsonData, "high\":\"", "\""));
 	response.temp_low = parseInt(readData(jsonData, "low\":\"", "\""));
 	response.descr = readData(jsonData, "text\":\"", "\"");
-	response.isSuccess = true;
+	// a value over 250 degree/fahrenheit makes no sense
+	response.isSuccess = response.temp_low < 250;
 	return response;
 }
 

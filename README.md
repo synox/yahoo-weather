@@ -22,18 +22,17 @@ It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) fo
 
 
 ## Usage
-You have to find your location code "woeid". 
+> To find your WOEID, browse or search for your city from the Weather home page. 
+> The WOEID is in the URL for the forecast page for that city. 
+> -- <cite>from the [yahoo manual](http://developer.yahoo.com/weather/#req)</cite>
 
-open the following link in your browser and replace the city name und the URL: 
 
-http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20geo.places%20where%20text=%22New%20York,US%22
-
-You have to call init with the httpClient and your woeid. 
+You have to call the init() method with your woeid, an instance of httpClient and a boolean for celsius/fahrenheit. 
 
 in setup(): 
 
 ```c++
-		weather.init("781788", httpClient);
+		weather.init("781788", httpClient,true);
 		weatherCache.init(&weather); 
 ```
 
