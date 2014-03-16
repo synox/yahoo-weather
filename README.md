@@ -7,14 +7,20 @@ Please read the yahoo [Usage Information and Limits](http://developer.yahoo.com/
 
 > This library should be considered **alpha** tested software.  It is not ready for use in production without testing and bugfixing. 
 
-## Data
-Currently the library loads the high and low temperature for today, including a short description. 
+## Weather data
+Currently the library loads the high and low temperature for today, including a short description. example: 
 
-It can easily be extended, **please fork and send pull requests!**
+	{
+	 "high": "16",
+	 "low": "1",
+	 "text": "Mostly Cloudy"
+	}
 
-Here is a list of the possible descriptions: http://developer.yahoo.com/weather/#codes
+(Here is a list of the possible "text" values: http://developer.yahoo.com/weather/#codes )
 
 ### How to include other data?
+It can easily be extended, you can fork this project and send pull requests!
+
 1. open in your browser:  http://developer.yahoo.com/yql/console/?q=select%20item%20from%20weather.forecast%20where%20u%3D'c'%20and%20woeid%3D%20781788
 2. press ``Test``, enable "Tree View".
 3. read the output and choose wich data you need. e.g. atmosphere-humidity
@@ -24,11 +30,12 @@ Here is a list of the possible descriptions: http://developer.yahoo.com/weather/
 7. adjust the method``Weather::parse()`` to respect the other json parameters. Compare with the json output, watch out for spaces. Add more variables to the ``weather_response_t`` struct. 
 8. make tests, deploy, leave feedback
 
-## Dependencies
-It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) for spark core. Before compiling, add those files to your workspace. If you are building locally add it to `build.mk`. 
 
 ## Known issues
 * sometimes it does not connect to yahoo api on first try. after a few tries it should work. 
+
+## Dependencies
+It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) for spark core. Before compiling, add those files to your workspace. If you are building locally add it to `build.mk`. 
 
 
 ## Usage
