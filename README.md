@@ -20,8 +20,8 @@ Here is a list of the possible descriptions: http://developer.yahoo.com/weather/
 3. read the output and choose wich data you need. e.g. atmosphere-humidity
 4. limit your query to only select what you need. (it's a tree.) example: ``select atmosphere.humidity, wind.speed  from weather.forecast where woeid=2502265``
 5. select "json" and copy the URL labeled "THE REST QUERY". Test it in your browser or wget/curl, keep the output as a reference for implementation. 
-6. paste it to the weather.cpp to the query address
-7. adjust ``Weather::parse()`` to respect the other json parameters. Doublecheck the exact json output. Add more variables to the ``weather_response_t`` struct. 
+6. paste the URL into the ``weather.cpp`` to ``request.path = "/v1/...``
+7. adjust the method``Weather::parse()`` to respect the other json parameters. Compare with the json output, watch out for spaces. Add more variables to the ``weather_response_t`` struct. 
 8. make tests, deploy, leave feedback
 
 ## Dependencies
