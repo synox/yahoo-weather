@@ -39,9 +39,9 @@ It's using the [HttpClient library](https://github.com/nmattisson/HttpClient) fo
 
 
 ## Usage
-> To find your WOEID, browse or search for your city from the Weather home page. 
+> To find your WOEID, browse or search for your city from the [Yahoo Weather home](http://weather.yahoo.com/) page. 
 > The WOEID is in the URL for the forecast page for that city. 
-> -- <cite>from the [yahoo manual](http://developer.yahoo.com/weather/#req)</cite>
+> -- (from the [yahoo manual](http://developer.yahoo.com/weather/#req) )
 
 
 You have to call the init() method with your woeid, an instance of httpClient and a boolean for celsius/fahrenheit. 
