@@ -74,7 +74,7 @@ or you can access the update directly:
 ```c++
 
 	#include "Adafruit_CharacterOLED.h"
-	#include "Weather.h"
+	#include "yahoo_weather.h"
 	#include "HttpClient.h"
 	
 	
