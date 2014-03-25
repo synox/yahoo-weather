@@ -71,6 +71,9 @@ or you can access the update directly:
 ```
 
 ## Full usage example
+
+**This does not work yet, we first have to fix the httpClient. Use this only if C++ is your mother tongue.**
+
 ```c++
 
 	#include "Adafruit_CharacterOLED.h"
