@@ -85,11 +85,12 @@ or you can access the update directly:
 	HttpClient* httpClient;
 	
 	void setup() {
-		httpClient = new HttpClient("781788", httpClient);
+		httpClient = new HttpClient("query.yahooapis.com", 80);
 
 		lcd = new Adafruit_CharacterOLED(...);
 	
 		// weather
+		weather.init("781788", httpClient);
 		weatherCache.init(&weather); 
 	}
 	
